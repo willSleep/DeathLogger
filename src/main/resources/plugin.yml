@@ -1,0 +1,6 @@
+name: DeathLogger
+version: '1.0-SNAPSHOT'
+main: com.willSleep.DeathLogger
+api-version: '1.20'
+authors: [ willSleep ]
+description: 记录玩家死亡详细数据
