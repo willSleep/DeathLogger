@@ -1,6 +1,12 @@
 name: DeathLogger
 version: '1.0-SNAPSHOT'
 main: com.willSleep.DeathLogger
+website: https://github.com/willSleep/DeathLogger
 api-version: '1.20'
 authors: [ willSleep ]
-description: 记录玩家死亡详细数据
+description: 一个 Minecraft Paper 插件，用于实现一些关于玩家死亡的侦听和功能。
+
+commands:
+  deathclaim:
+    description: "向管理员上报最近一次死亡并申请理赔"
+    aliases: dc

@@ -1,1 +1,5 @@
-
+settings:
+  # 是否在玩家死亡后发送死亡消息
+  player-death-message:
+    enable: false
+    content: "死亡数据已存档至数据库"

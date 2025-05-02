@@ -18,11 +18,13 @@ public class DeathRecord {
     private final String inventory;
     private final String armor;
     private final String offhand;
+    private final int ping;
 
 
     public DeathRecord(UUID playerUuid, String playerName, Date deathTime,
                        String deathCause, org.bukkit.Location location,
-                       String inventory, String armor, String offhand) {
+                       String inventory, String armor, String offhand,
+                       int ping) {
         this.playerUuid = playerUuid;
         this.playerName = playerName;
         this.deathTime = deathTime;
@@ -34,6 +36,7 @@ public class DeathRecord {
         this.inventory = inventory;
         this.armor = armor;
         this.offhand = offhand;
+        this.ping = ping;
     }
 
     // Getters
@@ -48,5 +51,6 @@ public class DeathRecord {
     public String getInventory() { return inventory; }
     public String getArmor() { return armor; }
     public String getOffhand() { return offhand; }
+    public int getPing() { return ping; }
 
 }

@@ -6,6 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec;
 import java.util.ArrayList;
@@ -16,10 +17,12 @@ import java.util.List;
  * 监听器 - 用于监听玩家死亡相关事件
  */
 public class DeathListener implements Listener {
+    private final JavaPlugin plugin;
     private final DatabaseManager databaseManager;
 
     public DeathListener(DeathLogger plugin) {
         this.databaseManager = plugin.getDatabaseManager();
+        this.plugin = plugin;
     }
 
     @EventHandler
@@ -36,14 +39,16 @@ public class DeathListener implements Listener {
                 player.getLocation(),
                 serializeInventory(inventory.getContents()),
                 serializeInventory(inventory.getArmorContents()),
-                serializeItemStack(inventory.getItemInOffHand())
+                serializeItemStack(inventory.getItemInOffHand()),
+                player.getPing()
         );
 
         // 保存到数据库
         databaseManager.saveDeathRecord(record);
 
-        player.sendMessage("死亡信息已记录至数据库");
-
+        if(plugin.getConfig().getBoolean("settings.player-death-message.enable")) {
+            player.sendMessage(plugin.getConfig().getString("settings.player-death-message.content"));
+        }
     }
 
     /**
