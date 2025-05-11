@@ -14,4 +14,4 @@
 3. 重启服务器
 
 ## 📜 License
-MIT License © 2023 [willSleep] (2982185926@qq.com)
+MIT License © 2025 [willSleep] (2982185926@qq.com)
